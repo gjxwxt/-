@@ -1,0 +1,56 @@
+<!--pages/details/details.wxml-->
+<view class="topColor fontPlace">商品详情</view>
+<image bindtap="back" src="/images/icon3.png" style="width: 5vw; position: absolute;top: 6.5vh;left: 2.5vw; " mode="widthFix"></image>
+
+<view>
+    <image bindtap="toCart" src="/images/cart2.png" style="position: absolute;top:20vh ; right: 5vw;width: 40px; height: 40px ;"></image>
+    <view style="width: 5.5vw;height: 3.5vh;background-color: #AC956C;font-size: small;border-radius: 50%;color: white;position: absolute;top:20vh ; right: 5vw;text-align: center;">{{cartAllProduct}}</view>
+</view>
+
+<view>
+    <view style="width: 100vw;height: 60vh;">
+        <!-- 图片 -->
+        <view style="height: 30vh;width: 100%;display: flex; justify-content: center;align-items: center;">
+            <image style="width: 40vw;" mode="widthFix" src="{{baseUrl+productList.main_img_url}}"></image>
+        </view>
+        <!-- 选择框 -->
+        <view style="width: 100%; height: 12vh; display: flex;justify-content: center;">
+            <view style="width: 90%;height: 70%; background-color: #ffb142;border-radius: 10px 10px ;display: flex;justify-content: center;">
+                <!-- picker组件 -->
+                <view style="height: 100%;width: 50%;">
+                    <picker style="width: 100%;height: 100%;text-align: center;" bindchange="bindPickerChange" value="{{setIndex}}" range="{{activityArr}}" range-key="id">
+                        <view style="float: left;width: 40%;margin-top: 2.8vh;">数量</view>
+                        <view style="width: 50%;float: left;margin-top: 2.8vh;">{{setIndex+1}}</view>
+                    </picker>
+                </view>
+                <!-- 加入购物车 -->
+                <view bindtap="addCart" style=" height: 100%;width: 50%; display: flex;align-items: center;">
+                    <text>加入购物车</text>
+                    <image src="/images/cart1.png" style="width: 15%; margin-left: 15rpx;" mode="widthFix"></image>
+                </view>
+            </view>
+
+
+        </view>
+        <!-- stock name price -->
+        <view style="width: 100vw; height: 18vh; text-align: center;padding: 15px 0">
+            <view style="font-size: small; font-weight: 300;">有货</view>
+            <view>{{productList.name}}</view>
+            <view style="font-size: smaller;">￥{{productList.price}}</view>
+        </view>
+    </view>
+    <!-- 商品详情 -->
+    <!-- 详情bar -->
+    <view style="display: flex; flex-direction: row; text-align: center;">
+        <view bindtap="pick" class="{{pick==1?'pick':''}}" data-id="1" style="flex-grow: 1; font-size: smaller;padding: 2vw;">商品详情</view>
+        <view bindtap="pick" class="{{pick==2?'pick':''}}" data-id="2" style="flex-grow: 1; font-size: smaller;padding: 2vw;">产品参数</view>
+        <view bindtap="pick" class="{{pick==3?'pick':''}}" data-id="3" style="flex-grow: 1; font-size: smaller;padding: 2vw;">售后保障</view>
+    </view>
+    <!-- 详情 -->
+    <block wx:if="{{pick=='2'}}">
+        <view>品名 {{productList.details}}</view>
+        <view>口味 {{}}</view>
+        <view>产地 {{}}</view>
+        <view>保质期 {{}}</view>
+    </block>
+</view>

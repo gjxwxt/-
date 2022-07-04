@@ -1,0 +1,7 @@
+<view class="topColor fontPlace">支付结果</view>
+<image bindtap="back" src="/images/icon3.png" style="width: 5vw; position: absolute;top: 6.5vh;left: 2.5vw; " mode="widthFix"></image>
+<view style="width: 100% ;margin-top: 10vh;height: 50vh;display: flex;flex-direction: column;align-items: center;">  
+    <image src='/images/payfail.png' style="width: 25vw;"mode="widthFix"></image>
+    <view>支付失败</view>
+    <view bindtap="back" style="width: 100%;text-align: center;height: 7vh;line-height: 7vh;margin-top: 10vh;background-color: #dfe6e9;border-radius: 10px 10px ;" >查看订单</view>
+</view>

@@ -1,0 +1,26 @@
+<view class="topColor">我的</view>
+<view style="width: 100%;height: 8vh;background-color: chocolate;"></view>
+<view bindtap="pickAddress" class="tip">地址管理</view>
+<view class="outtip" wx:if="{{userInfo}}">
+    <view class="address">{{userInfo.userName}}</view>
+    <view class="address">{{userInfo.telNumber}}</view>
+    <view class="address">{{userInfo.address}}</view>
+</view>
+<view class="tip">我的订单</view>
+<!-- 订单列表 -->
+<view wx:for="{{productList}}" wx:key="index">
+    <view style="border-bottom: 0.5px solid gray; padding-left: 2vw;height: 4.2vh;line-height: 4.2vh;">订单编号：{{item.order_no}}</view>
+    <view bindtap="topaydetail" data-id="{{item.id}}" style="width: 100vw;height: 14vh;border-bottom: 1px solid gray;display: flex;align-items: center;">
+        <image src="{{baseUrl+item.snap_img}}" style="width: 27vw;height: 27vw;"></image>
+        <view style="width: 73vw;height: 100%;position: relative;padding:2vh 2vw;box-sizing: border-box;line-height: 30px;">
+            <view>{{item.snap_name}}</view>
+            <view>{{item.total_count}}</view>
+            <view style="position: absolute;right: 2vw;top: 4vh;">{{item.status==1?'待付款':'已支付'}}</view>
+        </view>
+    </view>
+
+    <view style="height: 4.2vh;line-height: 4.2vh;border-bottom: 3px solid gray;">
+        <view style="float: left;margin-left: 2vw;">实付:￥{{item.total_price}}</view>
+        <view data-id="{{item.id}}" style="float: right;width: 20vw;height:3.5vh;background-color: darkred;text-align: center;margin-top: 0.4vh;line-height: 3.5vh;margin-right:2vw ;" bindtap="topay">付款</view>
+    </view>
+</view>

@@ -1,0 +1,13 @@
+.log-list {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+}
+.log-item {
+  margin: 10rpx;
+}
+.active{
+    color: #e58e26;
+    border-left: 1px solid #e58e26;
+    box-sizing: border-box;
+}

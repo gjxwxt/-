@@ -1,0 +1,26 @@
+<view class="topColor">分类</view>
+<view style="display: flex;">
+    <!-- 左侧 -->
+    <view style="width: 18%; min-height: 88vh;">
+        <!-- id  2-7 -->
+        <view class="{{nowfloor===item.id?'active':''}}" bindtap="changeFloor" style="text-align: center;line-height:5.5vh;height: 5.5vh;" wx:for="{{currentList}}" wx:key="index" data-id="{{item.id}}">
+            <text style="font-size:14px;">{{item.name}}</text>
+        </view>
+    </view>
+    <!-- 右侧 -->
+    <view style="width: 82%; min-height: 88vh;display: flex; align-items: center; flex-direction: column;">
+        <view style="width: 100%;height: 25vh;display: flex;flex-direction: column;align-items: center;">
+            <image src="{{baseUrl+topPicture[0].img.url}}" style="width:90%; height: 100%;"></image>
+            <view style="margin:6px 0">{{topPicture[0].name}}</view>
+        </view>
+        <view style="width: 100%; display:flex;flex-wrap: wrap;justify-content: space-around;">
+            <view wx:for="{{productList}}" bindtap="changeDetails" data-id="{{items.id}}" wx:key="index" wx:for-item="items" style="width: 32%; height: 15vh;display: flex;flex-direction:column;align-items: center;text-align: center;">
+                <image src="{{baseUrl+items.main_img_url}}" style="width: 50%;height: 50%;"></image>
+                <view style="font-size: 12px; width:50px;">{{items.name}}</view>
+            </view>
+        </view>
+
+    </view>
+    <!-- </view> -->
+
+</view>

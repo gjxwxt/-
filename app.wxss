@@ -1,0 +1,2 @@
+.topColor{background-color: #009432;width: 100vw;height: 12vh;line-height: 15vh;padding: 0 20rpx;font-size: 17px;color: aliceblue;}
+.fontPlace{padding-left: 10vw;box-sizing: border-box;}

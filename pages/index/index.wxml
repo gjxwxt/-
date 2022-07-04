@@ -1,0 +1,31 @@
+<!-- 顶部 -->
+<view class="topColor">购物商城</view>
+<!-- swiper -->
+<view class="container">
+    <swiper  indicator-dots="true" autoplay="true" interval="2000" circular="true"style="display:flex;justify-content:center;height:26vh">
+        <swiper-item wx:for="{{currentList}}" wx:key="index" bindtap="show" >
+            <image src='{{baseUrl+item}}' style="height: 100%;width: 100%;"mode="widthFix"></image>
+        </swiper-item>
+    </swiper>
+</view>
+<view style="text-align: center; color: #e58e26;height: 5vh; padding: 5px;line-height: 5vh;">
+    <text>精选主题</text>
+</view>
+<!-- banner -->
+<view style="height: 50vh; display: flex;flex-wrap: wrap">
+    <view style="width: 48vw; flex-grow: 1;height: 49%;" wx:for="{{currentTheme}}" wx:key="index" id='{{item.id}}' bindtap="transmit">
+        <image src='{{baseUrl+item.topic_img.url}}' style="width: 100%;height:100%;"></image>
+    </view>
+</view>
+<view style="text-align: center; color: #e58e26;height: 5vh; padding: 5px;line-height: 5vh;">
+    <text>最近新品</text>
+</view>
+<view style="width: 100%;">
+    <view wx:for="{{productList}}" wx:key="index" data-id="{{item.id}}" data-img="{{item.main_img_url}}" data-num="{{1}}">
+        <view bindtap="changeDetails" data-id="{{item.id}}" data-name="{{item.name}}"data-price="{{item.price}}" data-stock="{{item.stock}}" data-main_img_url="{{item.main_img_url}}" data-img_id="{{item.img_id}}" style="float: left;margin:0 2.5vw;width: 45vw;height: 46vw;display: flex;flex-direction: column;align-items: center; background-color: #f1f2f6; margin-top: 20rpx;">
+            <image src="{{baseUrl+item.main_img_url}}" style="width: 60%;" mode="widthFix"></image>
+            <text style="font-size: small;">{{item.name}}</text>
+            <text style="font-size: 12px;">{{item.price}}</text>
+        </view>   
+    </view>
+</view>
